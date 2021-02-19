@@ -31,9 +31,8 @@ simulator = TaskSimulator(init_time=time.time()-60*60*24*210,
 ```
 Here for example, within 20 days you have created 6 subrojects, completed 3. \
 This is assuming that all variables of creation and completion are independant. \
-Then each hour of the day we will simultate a bernouilli variable of probability mu^j/24. \
-
-it represents the occuring of the event j within a one hour timeframe. \
+Then each hour of the day we will simultate a bernouilli variable of probability mu^j/24. 
+It represents the occuring of the event j within a one hour timeframe. \
 Then let X_i^j be the variable representing the number of event j during day i. \
 It follows a binomial law: 
 
