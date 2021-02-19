@@ -1,7 +1,9 @@
 # todolist_software
 
 This app consist on a todo list, built with pyqt5. \
-You cann create and edit project, then subdivide them in sub-projects that will then contain your tasks
+You cann create and edit project, then subdivide them in sub-projects that will then contain your tasks. \
+You can view anlytics of productivity on the right side of the gui with task created, task completed, sub-projects created and completed, cumulative or not and with filters on the desired project. \
+More analytics will be added later, but the data recording will not change. (meaning the task created between versions cannot be corrupted)
 
 GUI interface
 ![alt text](src/main.PNG)
