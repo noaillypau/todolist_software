@@ -71,3 +71,5 @@ simulator.run()
 * pyQt5 doc: https://doc.qt.io/qtforpython-5/PySide2/QtWidgets/index.html#module-PySide2.QtWidgets
 
 * pyinstaller: https://www.pyinstaller.org/
+
+* deploy help: https://www.youtube.com/watch?v=Em9JNEI6Zfc
