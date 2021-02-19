@@ -40,6 +40,12 @@ It follows a binomial law:
 
 with muj the desired average event j within a day.
 
+You can then run the simulation with 
+```python
+simulator.run()
+
+```
+
 
 # Requierment
 
