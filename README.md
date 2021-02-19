@@ -37,6 +37,9 @@ $$\mu^j$$ represents the occuring of the event $$j$$ within a one hour timeframe
 Then let $$X_i^j$$ be the variable representing the number of event $$j$$ during day $$i$$. \
 It follows a binomial law $$X_i^j\sim \mathbb{B}(24,\frac{\mu^j}{24})$$ with $$mu_j$$ the desired average event $$j$$ within a day.
 ```
+```math
+X_i^j\sim \mathbb{B}(24,\frac{\mu^j}{24})
+```
 
 # Requierment
 
