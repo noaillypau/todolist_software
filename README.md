@@ -30,6 +30,13 @@ simulator = TaskSimulator(init_time=time.time()-60*60*24*210,
 
 ```
 
+Here for example, within 20 days you have created 6 subrojects, completed 3. \
+This is assuming that all variables of creation and completion are independant. \
+Then each hour of the day we will simultate a bernouilli variable of probability $$\frac{\mu^j}{24})$$. \
+$$\mu^j$$ represents the occuring of the event $$j$$ within a one hour timeframe. \
+Then let $$X_i^j$$ be the variable representing the number of event $$j$$ during day $$i$$. \
+It follows a binomial law $$X_i^j\sim \mathbb{B}(24,\frac{\mu^j}{24})$$ with $$mu_j$$ the desired average event $$j$$ within a day.
+
 # Requierment
 
  * pyQt5
