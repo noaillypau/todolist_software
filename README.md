@@ -65,6 +65,7 @@ simulator.run()
 - [ ] Finish data analytics / stats
   - [ ] add graph of task_created/task_completed
   - [ ] add bar graph of most active project/sub project of last 7 days/1month (by task completed)
+  - [ ] link edit goal to edit json
   
 # References
 
