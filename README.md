@@ -8,6 +8,16 @@ More analytics will be added later, but the data recording will not change. (mea
 GUI interface
 ![alt text](src/main.PNG)
 
+# simultaion of tasks
+
+A simulation script have bee created within `taskSimulator.py` \
+You can instance a simulator with the average daily data (project created, task completed ect). See bellow: \
+
+```python
+print('hello')
+
+```
+
 # Requierment
 
  * pyQt5
