@@ -14,7 +14,19 @@ A simulation script have bee created within `taskSimulator.py` \
 You can instance a simulator with the average daily data (project created, task completed ect). See bellow: \
 
 ```python
-print('hello')
+from taskSimulator import TaskSimulator
+import time
+simulator = TaskSimulator(init_time=time.time()-60*60*24*210, 
+                          end_time=time.time(),
+                          daily_new_project = 0.025,
+                          daily_new_subproject = 0.3,
+                          daily_new_task = 15,
+                          daily_complete_task = 10,
+                          daily_complete_subproject = 0.15,
+                          daily_complete_project = 0.012,
+                          proba_new_field = 0.3,
+                          proba_new_subField = 0.2,
+                          do_reset = True)
 
 ```
 
