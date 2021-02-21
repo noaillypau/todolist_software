@@ -1130,41 +1130,45 @@ class Ui_MainWindow(object):
 # stats
 
     def refresh_temporel_graph(self):
-        project_to_plot = self.comboBox_statsProjectToPlot.currentText() 
-        topic_to_plot = self.comboBox_statsTopictoPlot.currentText()
-        freq_to_plot = self.comboBox_statsFrequencyToPlot.currentText()
-        cum_to_plot = self.checkBox_statsCumulativetoPlot.checkState()
-        print(cum_to_plot,type(cum_to_plot))
-        # project
-        list_project = []
-        for filename in os.listdir('data'):
-            with open('data/'+filename,'r') as f:
-                dic = json.load(f)
-                list_project.append(dic)
-                f.close()
-        # graph 1
-        self.graphicView = pg.PlotWidget(axisItems = {'bottom': pg.DateAxisItem()})
-        self.graphicView.enableAutoRange()
-        self.graphicView.setBackground('w')
-        x, y = DataExtractor().get_arrays(project_to_plot, topic_to_plot, freq_to_plot)
-        if cum_to_plot == 2:
-            y = y.cumsum()
-            plot = self.graphicView.plot(x,y)
-        else:
-            bg = pg.BarGraphItem(x=x, height=y, width=0.3,brush='b')
-            self.graphicView.addItem(bg)
+        try:
+            project_to_plot = self.comboBox_statsProjectToPlot.currentText() 
+            topic_to_plot = self.comboBox_statsTopictoPlot.currentText()
+            freq_to_plot = self.comboBox_statsFrequencyToPlot.currentText()
+            cum_to_plot = self.checkBox_statsCumulativetoPlot.checkState()
+            print(cum_to_plot,type(cum_to_plot))
+            # project
+            list_project = []
+            for filename in os.listdir('data'):
+                with open('data/'+filename,'r') as f:
+                    dic = json.load(f)
+                    list_project.append(dic)
+                    f.close()
+            # graph 1
+            self.graphicView = pg.PlotWidget(axisItems = {'bottom': pg.DateAxisItem()})
+            self.graphicView.enableAutoRange()
+            self.graphicView.setBackground('w')
+            x, y = DataExtractor().get_arrays(project_to_plot, topic_to_plot, freq_to_plot)
+            if cum_to_plot == 2:
+                y = y.cumsum()
+                plot = self.graphicView.plot(x,y)
+            else:
+                bg = pg.BarGraphItem(x=x, height=y, width=0.3,brush='b')
+                self.graphicView.addItem(bg)
 
-        label_topic = topic_to_plot
-        label_cum = {2:'cumulative ',0:''}[cum_to_plot]
-        label_freq = freq_to_plot.lower()
-        if project_to_plot == 'All':
-            label_project = ''
-        else:
-            label_project = 'for project '+project_to_plot
-        title = QtWidgets.QLabel()
-        title.setText('{} {}{} {}'.format(label_topic, label_cum, label_freq, label_project))
-        self.dockWidget.setTitleBarWidget(title)
-        self.dockWidget.setWidget(self.graphicView)
+            label_topic = topic_to_plot
+            label_cum = {2:'cumulative ',0:''}[cum_to_plot]
+            label_freq = freq_to_plot.lower()
+            if project_to_plot == 'All':
+                label_project = ''
+            else:
+                label_project = 'for project '+project_to_plot
+            title = QtWidgets.QLabel()
+            title.setText('{} {}{} {}'.format(label_topic, label_cum, label_freq, label_project))
+            self.dockWidget.setTitleBarWidget(title)
+            self.dockWidget.setWidget(self.graphicView)
+        except Exception as e:
+            print('cannot refresh graph because of '+str(e))
+         
 
 
     def init_combo_filter_project(self):
